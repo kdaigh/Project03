@@ -1,7 +1,7 @@
 import pygame
 from pygame.locals import *
 pygame.init()
-from main import Ship
+from Ship import Ship
 
 # setting window size
 screen = pygame.display.set_mode((900, 600))
