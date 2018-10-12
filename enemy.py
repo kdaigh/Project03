@@ -13,28 +13,28 @@ class Enemy(ShowBase):
     # add groups of enemies
         self.pandaActor = Actor("models/panda-model",
                                 {"walk": "models/panda-walk4"})
-        self.pandaActor.setScale(0.001, 0.001, 0.001)
+        self.pandaActor.setScale(0.0025, 0.0025, 0.0025)
         self.pandaActor.loop("walk")
         self.pandaActor.reparentTo(self.render)
 
-        for j in range (4):
-            for i in range (5):
+        for j in range (17):
+            for i in range (18):
                 self.placeholder = self.render.attachNewNode("panda")
-                self.placeholder.setPos(-9,20,4-i)
+                self.placeholder.setPos(-9+(i*2),20,4)
                 self.pandaActor.instanceTo(self.placeholder)
             #self.placeholder2 = self.render.attachNewNode("panda")
-            self.placeholder.setPos(-8,20,4-j)
+            self.placeholder.setPos(-11+(j*2),20,0)
             self.pandaActor.instanceTo(self.placeholder)
 
-        pandaPosInterval1 = self.pandaActor.posInterval(10,
-                                                        Point3(-5, 20, 0),
+        pandaPosInterval1 = self.pandaActor.posInterval(7,
+                                                        Point3(0, 20, 4),
                                                         startPos=Point3(-9,20, 4))
-        pandaPosInterval2 = self.pandaActor.posInterval(10,
-                                                        Point3(-9, 20, 0),
-                                                        startPos=Point3(-5, 20, 0))
-        pandaPosInterval3 = self.pandaActor.posInterval(10,
+        pandaPosInterval2 = self.pandaActor.posInterval(7,
+                                                        Point3(0, 20, 0),
+                                                        startPos=Point3(0, 20, 4))
+        pandaPosInterval3 = self.pandaActor.posInterval(7,
                                                         Point3(-9, 20, 4),
-                                                        startPos=Point3(-9, 20, 0))
+                                                        startPos=Point3(0, 20, 0))
             #pandaHprInterval1 = self.pandaActor.hprInterval(3,
             #                                                Point3(180, 0, 0),
             #                                                startHpr=Point3(0, 0, 0))
