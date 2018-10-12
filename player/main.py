@@ -13,6 +13,9 @@ class Ship(object):
         self.right=False
 
         self.ship = pygame.image.load("ship.png")
+        self.shipLeft = pygame.image.load("ship_left.png")
+        self.shipRight = pygame.image.load("ship_right.png")
+
         screen.blit(self.ship, (450, 410))
         #pygame.display.update()
     def move(self,left,right):
@@ -20,14 +23,17 @@ class Ship(object):
         if left:
             self.x=self.x-10
             screen.blit(bg, (0,0))
-            screen.blit(self.ship, (self.x, self.y))
+            screen.blit(self.shipLeft, (self.x, self.y))
             #pygame.display.update()
+        elif not left:
+            screen.blit(bg, (0,0))
+            screen.blit(self.ship, (self.x, self.y))
 
         #def walkRight(self):
         if right:
             self.x=self.x+10
             screen.blit(bg, (0,0))
-            screen.blit(self.ship, (self.x, self.y))
+            screen.blit(self.shipRight, (self.x, self.y))
             #pygame.display.update()
 
 # setting window size
