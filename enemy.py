@@ -1,56 +1,30 @@
-from direct.showbase.ShowBase import ShowBase
-from direct.task import Task
-from direct.actor.Actor import Actor
-from direct.interval.IntervalGlobal import Sequence
-from panda3d.core import Point3
+import pygame
+import random
 
-class Enemy(ShowBase):
-
+class Enemy:
+    ## Constructor
     def __init__(self):
-        ShowBase.__init__(self)
+        ## postion with placeholder values that need to be set at run time
+        self.pos_x = 0
+        self.pos_y = 0
+        ##enemy image, place holder
+        self.enemy_art = pygame.image.load("Placeholder.png")
+        ##defines if it is hit or not
+        self.hit = False
 
-    # def add_enemy():
-    # add groups of enemies
-        self.pandaActor = Actor("models/panda-model",
-                                {"walk": "models/panda-walk4"})
-        self.pandaActor.setScale(0.001, 0.001, 0.001)
-        self.pandaActor.loop("walk")
-        self.pandaActor.reparentTo(self.render)
+    ##defines random movements
+    def enemy_movement(self):
+        if(random.randint(1,5) == 5):
+            for x in range(10):
+                self.pos_x = self.pos_x + 1
+        if(random.randint(1,5) == 4):
+            for x in range(10):
+                self.pos_y == self.pos_y + 1
+        if(random.randint(1,5) == 2):
+            for x in range(10):
+                self.pos_y = self.pos_y + 1
+                self.pos_x = self.pos_x + 1
 
-        for j in range (4):
-            for i in range (5):
-                self.placeholder = self.render.attachNewNode("panda")
-                self.placeholder.setPos(-9,20,4-i)
-                self.pandaActor.instanceTo(self.placeholder)
-            #self.placeholder2 = self.render.attachNewNode("panda")
-            self.placeholder.setPos(-8,20,4-j)
-            self.pandaActor.instanceTo(self.placeholder)
-
-        pandaPosInterval1 = self.pandaActor.posInterval(10,
-                                                        Point3(-5, 20, 0),
-                                                        startPos=Point3(-9,20, 4))
-        pandaPosInterval2 = self.pandaActor.posInterval(10,
-                                                        Point3(-9, 20, 0),
-                                                        startPos=Point3(-5, 20, 0))
-        pandaPosInterval3 = self.pandaActor.posInterval(10,
-                                                        Point3(-9, 20, 4),
-                                                        startPos=Point3(-9, 20, 0))
-            #pandaHprInterval1 = self.pandaActor.hprInterval(3,
-            #                                                Point3(180, 0, 0),
-            #                                                startHpr=Point3(0, 0, 0))
-            #pandaHprInterval2 = self.pandaActor.hprInterval(3,
-            #                                                Point3(0, 0, 0),
-            #                                                startHpr=Point3(180, 0, 0))
-
-
-            # Create and play the sequence that coordinates the intervals.
-        self.pandaPace = Sequence(pandaPosInterval1,
-        #                          pandaHprInterval1,
-                                  pandaPosInterval2,
-        #                          pandaHprInterval2,
-                                  pandaPosInterval3,
-                                  name="pandaPace")
-        self.pandaPace.loop()
-
-
-        # Loop its animation.
+    ##defines shooting needs a function call for shooting
+    def enemy_shooting(self):
+        if(random.randint(1,20) == 1):
