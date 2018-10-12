@@ -11,8 +11,6 @@ class Enemy(ShowBase):
 
     #def add_enemy():
 
-        # Load and transform the panda actor.
-
         self.pandaActor = Actor("models/panda-model",
                                 {"walk": "models/panda-walk4"})
         self.pandaActor.setScale(0.001, 0.001, 0.001)
@@ -49,8 +47,3 @@ class Enemy(ShowBase):
                                       name="pandaPace")
             self.pandaPace.loop()
         # Loop its animation.
-
-
-app = Enemy()
-# run should be called once at the end, I am using it here just for testing purposes.
-app.run()
