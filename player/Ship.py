@@ -60,6 +60,8 @@ class Ship(object):
                         self.right=False
 
                 #you're done playing so this exits it for you
-                if event.type == pygame.QUIT: sys.exit()
-            #updates where the rocket is 
+                if event.type == pygame.QUIT :
+                    pygame.quit()
+                    quit()
+            #updates where the rocket is
             pygame.display.update()
