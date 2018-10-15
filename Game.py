@@ -1,7 +1,7 @@
 import pygame
 from pygame.locals import *
 pygame.init()
-from Ship import Ship
+from player.Ship import Ship
 from Enemy import Enemy
 
 # setting window size
@@ -10,7 +10,7 @@ screen = pygame.display.set_mode((900, 600))
 pygame.display.set_caption("Py Five")
 
 #setting the background to the starts
-bg = pygame.image.load("space.jpg")
+bg = pygame.image.load('images/space.jpg')
 screen.blit(bg, (0,0))
 
 #instantiating the ship, you have to put the current screen and the background

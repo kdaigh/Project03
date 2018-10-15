@@ -16,9 +16,9 @@ class Ship(object):
         self.bg=bg
 
         #where the ship is being loaded, left and right are for when it moves
-        self.ship = pygame.image.load("ship.png")
-        self.shipLeft = pygame.image.load("ship_left.png")
-        self.shipRight = pygame.image.load("ship_right.png")
+        self.ship = pygame.image.load("images/ship.png")
+        self.shipLeft = pygame.image.load("images/ship_left.png")
+        self.shipRight = pygame.image.load("images/ship_right.png")
 
     #this is called when left and right arrow keys are pressed or held
     #self.screen.blit(self.bg, (0,0)) wipes out previous position of ship
