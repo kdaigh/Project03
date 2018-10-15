@@ -1,6 +1,8 @@
 import pygame
 from pygame.locals import *
+from Enemy.Enemy import Enemy
 pygame.init()
+
 
 class Ship(object):
     def __init__(self,x,y,width,height,screen,bg):
@@ -16,9 +18,13 @@ class Ship(object):
         self.bg=bg
 
         #where the ship is being loaded, left and right are for when it moves
-        self.ship = pygame.image.load("ship.png")
-        self.shipLeft = pygame.image.load("ship_left.png")
-        self.shipRight = pygame.image.load("ship_right.png")
+        self.ship = pygame.image.load("images/player_ship.png")
+        self.shipLeft = pygame.image.load("images/player_ship_left.png")
+        self.shipRight = pygame.image.load("images/player_ship_right.png")
+        #pygame.display.update()
+        self.screen.blit(self.ship, (self.x, self.y))
+
+
 
     #this is called when left and right arrow keys are pressed or held
     #self.screen.blit(self.bg, (0,0)) wipes out previous position of ship
