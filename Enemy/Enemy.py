@@ -15,10 +15,10 @@ class Enemy(object):
         ## defines if it is hit or not
         self.hit = False
         self.screen=screen
-        self.bg=bg
+        #self.bg=bg
 
         ## enemy image, place holder
-        self.enemy_img = pygame.image.load("spaceship.png")
+        self.enemy_img = pygame.image.load("images/enemy_spaceship.png")
 
 
     def add_enemies(self):
@@ -27,7 +27,7 @@ class Enemy(object):
                 if event.type == pygame.QUIT :
                     pygame.quit()
                     quit()
-            self.screen.blit(self.bg, (0,0))
+            #self.screen.blit(self.bg, (0,0))
             self.screen.blit(self.enemy_img, (self.pos_x, self.pos_y))
             pygame.display.update()
 
