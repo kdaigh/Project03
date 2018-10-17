@@ -32,8 +32,6 @@ class Enemy(Actor):
         self.enemy_img = pygame.image.load("images/enemy_spaceship.png")
         self.rect = self.enemy_img.get_rect()
 
-
-
     def add_enemies(self):
         x_boarder = self.screen_width - self.width - 20
         y_boarder = int(self.screen_height /2)  - self.height - 20
@@ -53,8 +51,6 @@ class Enemy(Actor):
         self.hit =False
 
 
-
-
     ## defines random movements
     def enemy_movement(self):
         if(random.randint(1,5) == 5):
@@ -67,6 +63,7 @@ class Enemy(Actor):
             for x in range(10):
                 self.pos_y = self.pos_y + 1
                 self.pos_x = self.pos_x + 1
+
 
     ## defines shooting needs a function call for shooting
     def enemy_shooting(self):
