@@ -7,7 +7,6 @@
 
 import pygame
 from actor import Actor
-pygame.init()
 
 ## @class Shot
 #  @brief Implements Actor base class as Shot object
