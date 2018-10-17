@@ -16,6 +16,7 @@ class Ship(object):
         self.right=False
         self.screen=screen
         self.bg=bg
+        self.hitbox = (self.x - 3, self.y, 115, 180)
 
         #where the ship is being loaded, left and right are for when it moves
         self.ship = pygame.image.load("images/player_ship.png")
@@ -26,6 +27,7 @@ class Ship(object):
 
 
 
+
     #this is called when left and right arrow keys are pressed or held
     #self.screen.blit(self.bg, (0,0)) wipes out previous position of ship
     def move(self):
@@ -33,16 +35,22 @@ class Ship(object):
             self.x=self.x-10
             self.screen.blit(self.bg, (0,0))
             self.screen.blit(self.shipLeft, (self.x, self.y))
+            self.hitbox = (self.x - 3, self.y, 115, 180)
+            pygame.draw.rect(self.screen, (255, 0, 0), self.hitbox, 2)
 
         #so the ship displays upright when you are not pressing a key
         elif not self.left:
             self.screen.blit(self.bg, (0,0))
             self.screen.blit(self.ship, (self.x, self.y))
+            self.hitbox = (self.x - 3, self.y, 115, 180)
+            pygame.draw.rect(self.screen, (255, 0, 0), self.hitbox, 2)
 
         if self.right:
             self.x=self.x+10
             self.screen.blit(self.bg, (0,0))
             self.screen.blit(self.shipRight, (self.x, self.y))
+            self.hitbox = (self.x - 3, self.y, 115, 180)
+            pygame.draw.rect(self.screen, (255, 0, 0), self.hitbox, 2)
 
     #the method that monitors for when left and right keys are pressed
     #eventually it will also look for space to fire
