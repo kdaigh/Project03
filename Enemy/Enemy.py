@@ -10,26 +10,40 @@ class Enemy(object):
         ## postion with placeholder values that need to be set at run time
         self.pos_x = x
         self.pos_y = y
-        self.width = width
-        self.height = height
+        self.width = 52
+        self.height = 48
         ## defines if it is hit or not
         self.hit = False
         self.screen=screen
-        #self.bg=bg
+        self.screen_width = 900
+        self.screen_height = 600
+        self.bg=bg
 
         ## enemy image, place holder
         self.enemy_img = pygame.image.load("images/enemy_spaceship.png")
+        self.rect = self.enemy_img.get_rect()
+
 
 
     def add_enemies(self):
-        while not self.hit:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT :
-                    pygame.quit()
-                    quit()
-            #self.screen.blit(self.bg, (0,0))
-            self.screen.blit(self.enemy_img, (self.pos_x, self.pos_y))
-            pygame.display.update()
+        x_boarder = self.screen_width - self.width - 20
+        y_boarder = int(self.screen_height /2)  - self.height - 20
+        #while not self.hit:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT :
+                pygame.quit()
+                quit()
+        #self.screen.blit(self.bg, (0,0))
+        self.screen.blit(self.bg, (0,0))
+        for x in range(40, x_boarder, 75):
+            for y in range(20, y_boarder, 70):
+                self.pos_y = y
+                self.pos_x = x
+                self.screen.blit(self.enemy_img, (self.pos_x, self.pos_y))
+        pygame.display.update()
+        self.hit =False
+
+
 
 
     ## defines random movements
