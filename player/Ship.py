@@ -79,6 +79,7 @@ class Ship(object):
                 #for when key is being pressed
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
+
                         self.left=True
                     if event.key == pygame.K_RIGHT:
                         self.right=True

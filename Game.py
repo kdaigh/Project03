@@ -25,3 +25,8 @@ while 1:
     #Thread(target=enemy.add_enemies()).start()
     playing.controls()
     enemy.add_enemies()
+
+    #added functionality to shot
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_SPACE:
+            Shot.append(Shot(player))
