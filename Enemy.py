@@ -1,10 +1,19 @@
+## @file enemy.py
+#  Source file for enemy object
+#
+#  Project: Gallaga Clone
+#  Author: Py Five
+#  Created: 10/17/19
+
 import pygame
-from pygame.locals import *
-pygame.init()
-import random, os.path
+import random
+from actor import Actor
 
 
-class Enemy(object):
+## @class Enemy
+#  @brief Implements Actor base class as Enemy object
+class Enemy(Actor):
+
     ## Constructor
     def __init__(self,x,y,width,height,screen,bg):
         ## postion with placeholder values that need to be set at run time
