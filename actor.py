@@ -8,6 +8,8 @@
 import pygame
 
 
+## @class Actor
+#  @brief Abstract base class for game actors
 class Actor:
 
     ## Constructor
