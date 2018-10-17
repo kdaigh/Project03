@@ -10,11 +10,24 @@ import pygame
 
 class Actor:
 
-    ## TO DO
     ## Constructor
     def __init__(self, image):
         self.image = image
         self.rect = image.get_rect()
+
+    ## Abstract method; Updates actor in frame
+    def update(self):
+        pass
+
+    ## TO DO
+    ## Draws the actor into the screen
+    def draw(self, screen):
+        pass
+
+    ## TO DO
+    ## Removes the actor from the screen
+    def erase(self, screen, background):
+        pass
 
     ## Loads and scales object/game image
     #  @author: Kristi
