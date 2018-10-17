@@ -1,3 +1,10 @@
+## @file shot.py
+#  Source file for shot object
+#
+#  Project: Gallaga Clone
+#  Author: Py Five
+#  Created: 10/17/19
+
 import pygame
 from pygame.locals import *
 from player.Ship import Ship
