@@ -32,32 +32,42 @@ class Ship(object):
     #this is called when left and right arrow keys are pressed or held
     #self.screen.blit(self.bg, (0,0)) wipes out previous position of ship
     def move(self):
+        #creating left bounds for ship
         if self.left:
-            self.x=self.x-10
-            self.screen.blit(self.bg, (0,0))
-            self.screen.blit(self.shipLeft, (self.x, self.y))
-            self.hitbox1 = (self.x, self.y, 77, 90)
-            self.hitbox2 = (self.x - 3, self.y + 80, 115, 85)
-            pygame.draw.rect(self.screen, (255, 0, 0), self.hitbox1, 2)
-            pygame.draw.rect(self.screen, (255, 0, 0), self.hitbox2, 2)
+            if self.x > 15:
+                self.x=self.x-10
+                self.screen.blit(self.bg, (0,0))
+                self.screen.blit(self.shipLeft, (self.x, self.y))
+                #creating hitbox for ship when moving left
+                self.hitbox1 = (self.x, self.y, 77, 90)
+                self.hitbox2 = (self.x - 3, self.y + 80, 115, 85)
+                # temporary red box around ship to visualize hitbox, will eventually be reomved
+                pygame.draw.rect(self.screen, (255, 0, 0), self.hitbox1, 2)
+                pygame.draw.rect(self.screen, (255, 0, 0), self.hitbox2, 2)
 
         #so the ship displays upright when you are not pressing a key
         elif not self.left:
             self.screen.blit(self.bg, (0,0))
             self.screen.blit(self.ship, (self.x, self.y))
+            #creating hitbox for ship when not moving
             self.hitbox1 = (self.x + 16, self.y, 77, 90)
             self.hitbox2 = (self.x - 3, self.y + 90, 115, 85)
+            #temporary red box around ship to visualize hitbox, will eventually be reomved
             pygame.draw.rect(self.screen, (255, 0, 0), self.hitbox1, 2)
             pygame.draw.rect(self.screen, (255, 0, 0), self.hitbox2, 2)
 
         if self.right:
-            self.x=self.x+10
-            self.screen.blit(self.bg, (0,0))
-            self.screen.blit(self.shipRight, (self.x, self.y))
-            self.hitbox1 = (self.x + 30, self.y, 77, 90)
-            self.hitbox2 = (self.x - 3, self.y + 80, 115, 85)
-            pygame.draw.rect(self.screen, (255, 0, 0), self.hitbox1, 2)
-            pygame.draw.rect(self.screen, (255, 0, 0), self.hitbox2, 2)
+            #creating right bounds for ship
+            if self.x < 780:
+                self.x=self.x+10
+                self.screen.blit(self.bg, (0,0))
+                self.screen.blit(self.shipRight, (self.x, self.y))
+                #creating hit box for ship when moving right
+                self.hitbox1 = (self.x + 30, self.y, 77, 90)
+                self.hitbox2 = (self.x - 3, self.y + 80, 115, 85)
+                #temporary red box around ship to visualize hitbox, will eventually be reomved
+                pygame.draw.rect(self.screen, (255, 0, 0), self.hitbox1, 2)
+                pygame.draw.rect(self.screen, (255, 0, 0), self.hitbox2, 2)
 
     #the method that monitors for when left and right keys are pressed
     #eventually it will also look for space to fire
