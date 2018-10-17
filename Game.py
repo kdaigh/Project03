@@ -18,10 +18,10 @@ screen.blit(bg, (0,0))
 #instantiating the ship, you have to put the current screen and the background
 #in because the ships movements are covered with the background
 playing = Ship(418,410,64,64,screen,bg)
-enemy = Enemy(400,400,64,64,screen,bg)
+enemy = Enemy(400,400,52,48,screen,bg)
 
 while 1:
     #allows the user to control the ship that was place
     #Thread(target=enemy.add_enemies()).start()
-    playing.controls()
+    #playing.controls()
     enemy.add_enemies()
