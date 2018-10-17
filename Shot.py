@@ -6,12 +6,13 @@
 #  Created: 10/17/19
 
 import pygame
-from pygame.locals import *
-from player.Ship import Ship
+from actor import Actor
 pygame.init()
 
-##The shots from the enemy and player ships
-class Shot(object):
+## @class Shot
+#  @brief Implements Actor base class as Shot object
+class Shot(Actor):
+
     ##Constructor
     def __init__(self):
         self.rect.centerx = Ship.rect.centerx
