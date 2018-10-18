@@ -23,10 +23,10 @@ class Actor:
     def update(self):
         pass
 
-    ## TO DO
     ## Draws the actor into the screen
     def draw(self, screen):
-        pass
+        render = screen.blit(self.image, self.rect)
+        dirtyrects.append(render)
 
     ## TO DO
     ## Removes the actor from the screen
