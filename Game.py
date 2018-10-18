@@ -24,11 +24,13 @@ class Game:
         clock = pygame.time.Clock()
 
         # TO DO: Load Images
-
+        player_img = self.load_image('player_ship.png', 32, 32)
+        enemy_img = self.load_image('enemy_spaceship.png', 26, 26)
+        shot_img = self.load_image('missile1.png', 10, 24)
 
         # TO DO: Load Background
-        bg = pygame.image.load('images/space.jpg')
-        screen.blit(bg, (0, 0))
+        background_img = load_image('space.jpg', width, height)
+        background_img = get_at((0, 0))
 
         # Setup Game Window
         icon = pygame.transform.scale(Alien.images[0], (32, 32))
