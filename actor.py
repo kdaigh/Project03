@@ -7,6 +7,7 @@
 
 import pygame
 import os.path
+import constants as const
 
 
 ## @class Actor
