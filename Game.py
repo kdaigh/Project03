@@ -50,7 +50,8 @@ class Game:
 
         # TO DO: Load Background
         background_img = self.load_image('space.jpg', width, height)
-        background_img = self.get_at((0, 0))
+        screen.blit(screen, (0,0))
+        #background_img = self.get_at((0, 0))
 
         # Setup Game Window
         icon = pygame.transform.scale(player_img, (32, 32))
