@@ -13,11 +13,12 @@ from actor import Actor
 class Player(Actor):
 
     ## Constructor
-    def __init__(self):
-        # TO DO: call to Actor constructor
+    def __init__(self, image):
+        Actor.__init__(self, self.image)
         self.alive = True
         self.reloading = False
-        # TO DO: set initial coordinates
+        self.rect.centerx = WINDOW.centerx
+        self.rect.bottom = WINDOW.bottom
 
     ## TO DO
     ## Moves player in a specific direction
