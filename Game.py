@@ -6,6 +6,9 @@
 #  Created: 10/14/19
 
 import pygame
+from player import Player
+from enemy import Enemy
+from shot import Shot
 from globals import *
 
 
