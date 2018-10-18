@@ -11,6 +11,7 @@ import constants as const
 # Game Globals
 clock = None
 screen = None
+bg = None
 
 # Window Dimensions
 width, height = const.WIDTH, const.HEIGHT

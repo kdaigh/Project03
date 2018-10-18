@@ -8,7 +8,7 @@
 import pygame
 from player import Player
 from enemy import Enemy
-from shot import Shot
+from Shot import Shot
 from globals import *
 
 
@@ -23,7 +23,8 @@ class Game:
 
         # Initialize Game Peripherals
         pygame.init()
-        screen = pygame.display.set_mode(width, height)
+        #width and height should be tuple
+        screen = pygame.display.set_mode((width, height))
         clock = pygame.time.Clock()
 
         # TO DO: Load Images
