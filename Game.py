@@ -33,7 +33,7 @@ class Game:
         background_img = get_at((0, 0))
 
         # Setup Game Window
-        icon = pygame.transform.scale(Alien.images[0], (32, 32))
+        icon = pygame.transform.scale(player_img, (32, 32))
         pygame.display.set_icon(icon)
         pygame.display.set_caption('Gallaga Clone')
         pygame.mouse.set_visible(0)
