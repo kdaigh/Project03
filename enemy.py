@@ -15,9 +15,12 @@ class Enemy(Actor):
     ## TO DO
     ## Constructor
     def __init__(self):
-        pass
+        Actor.__init__(self, enemy_img)
+
 
     ## TO DO
     ## Function to update the enemy
     def update(self):
-        pass
+        global screen
+        if not screen.contains(self.rect):
+            self.rect = self.rect.clamp(screen)

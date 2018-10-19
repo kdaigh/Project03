@@ -15,7 +15,7 @@ class Player(Actor):
 
     ## Constructor
     def __init__(self, image):
-        Actor.__init__(self, image)
+        Actor.__init__(self, player_img)
         self.alive = True
         self.reloading = False
         self.rect.centerx = screen.centerx
