@@ -17,7 +17,7 @@ class Game:
 
     ## Constructor
     def __init__(self):
-        self.setup()
+        pass
 
 
     ## Loads and scales object/game image
@@ -27,19 +27,24 @@ class Game:
     #  @param: width, desired width of image
     #  @param: height, desired height of image
     #  @returns: Surface object
-    def load_image(self, filename, width, height):
+    def load_image(self, filename, file_width, file_height):
         filename = os.path.join('assets/images', filename)
         img = pygame.image.load(filename)
-        img = pygame.transform.scale(img, (width, height))
+        img = pygame.transform.scale(img, (file_width, file_height))
         return img.convert()
 
 
+    ## TO DO: Project 4
     ## Sets up the game
     def setup(self):
+        pass
+
+
+    ## Runs the game session
+    def run(self):
+
         # Initialize Game Peripherals
         pygame.init()
-
-        #width and height should be tuple
         screen = pygame.display.set_mode((width, height))
         clock = pygame.time.Clock()
 
@@ -49,11 +54,11 @@ class Game:
         shot_img = self.load_image('missile1.png', 10, 24)
 
         # TO DO: Load Background
-        background_img = self.load_image('space.jpg', width, height)
+        background_img = pygame.image.load('assets/images/space.jpg')
         background_img.get_at((0, 0))
         background_img = pygame.Surface((width, height))
-        screen.blit(background_img, (0,0))
-        pygame.display.update()
+        screen.blit(background_img, (0, 0))
+        pygame.display.flip()
 
         # Setup Game Window
         icon = pygame.transform.scale(player_img, (32, 32))
@@ -62,14 +67,11 @@ class Game:
         pygame.mouse.set_visible(0)
 
         # TO DO: Initialize Starting Actors
-        self.player = Player(player_img)
-        self.enemy = [Enemy(enemy_img)]
-
-    ## Runs the game session
-    def run(self):
+        player = Player(player_img)
+        enemy = [Enemy(enemy_img)]
 
         # Running loop
-        while self.player.alive:
+        while player.alive:
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -78,8 +80,8 @@ class Game:
             #added functionality to shot
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
-                        Shot.append(Shot(self.player))
+                        Shot.append(Shot(player))
 
             #added functionality to move
             move = pygame.K_a - pygame.K_d
-            self.player.move(move)
+            player.move(move)
