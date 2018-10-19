@@ -79,3 +79,7 @@ class Game:
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         Shot.append(Shot(self.player))
+
+            #added functionality to move
+            move = pygame.K_a - pygame.K_d
+            self.player.move(move)
