@@ -7,6 +7,7 @@
 
 from actor import Actor
 from globals import *
+import constants
 
 
 ## @class Player
@@ -25,4 +26,4 @@ class Player(Actor):
     ## Moves player in a specific direction
     #  @param: direction, coordinates that represent desired move
     def move(self, direction):
-        pass
+        self.rect = self.rect.move(direction * constants.PLAYER_SPEED, 0).clamp(screen)
