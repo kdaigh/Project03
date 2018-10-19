@@ -18,13 +18,20 @@ class Enemy(Actor):
     def __init__(self, image):
         Actor.__init__(self, image)
         self.hit = False
-        # For now we are not letting reload
+        self.direction = random.randrange(-1, 2) * ENEMY_SPEED
+        if self.direction > 0:
+            self.rect.left = screen.left
+        else:
+            self.rec.right = screen.right
+        # For now we are not letting enemies reload
 
 
 
     ## TO DO
     ## Function to update the enemy
     def update(self):
-        global screen
+        self.rect[0] = self.rect[0] + self.direction
         if not screen.contains(self.rect):
+            self.direction= - self.direction
+            self.rect.top = self.rect.bottom + 10
             self.rect = self.rect.clamp(screen)
