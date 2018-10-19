@@ -23,7 +23,7 @@ class Enemy(Actor):
         if self.direction > 0:
             self.rect.left = screen.left
         else:
-            self.rec.right = screen.right
+            self.rect.right = screen.right
         # For now we are not letting enemies reload
 
 

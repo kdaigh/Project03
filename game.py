@@ -52,7 +52,7 @@ class Game:
         # TO DO: Load Images
         background_img = pygame.image.load('assets/images/space.jpg')
         background_img.get_at((0, 0))
-        player_img = self.load_image('player_ship.png', 32, 32)
+        player_img = self.load_image('player_ship.png', 60, 60)
         enemy_img = self.load_image('enemy_spaceship.png', 26, 26)
         shot_img = self.load_image('missile1.png', 10, 24)
 
@@ -64,14 +64,14 @@ class Game:
         pygame.display.flip()
 
         # Setup Game Window
-        icon = pygame.transform.scale(player_img, (32, 32))
+        icon = pygame.transform.scale(player_img, (60, 60))
         pygame.display.set_icon(icon)
         pygame.display.set_caption('Gallaga Clone')
         pygame.mouse.set_visible(0)
 
         # TO DO: Initialize Starting Actors
         player = Player(player_img)
-        #enemy = [Enemy(enemy_img)]
+        enemy = Enemy(enemy_img)
 
         # Running loop
         while player.alive:
@@ -86,5 +86,9 @@ class Game:
 
             #added functionality to move
             move = pygame.K_a - pygame.K_d
+            for actor in [player] + [enemy]:
+                actor.draw(screen)
+            global dirtyrects
             player.move(move)
-            pygame.display.update()
+            pygame.display.update(dirtyrects)
+            dirtyrects = []
