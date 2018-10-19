@@ -18,7 +18,7 @@ class Enemy(Actor):
     def __init__(self, image):
         Actor.__init__(self, image)
         self.hit = False
-        # For now we are not letting
+        # For now we are not letting reload
 
 
 
