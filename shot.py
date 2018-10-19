@@ -13,9 +13,9 @@ from actor import Actor
 class Shot(Actor):
 
     ##Constructor
-    def __init__(self):
-        self.rect.centerx = Ship.rect.centerx
-        self.rect.top = Ship.rect.top - 5
+    def __init__(self, player):
+        self.rect.centerx = player.rect.centerx
+        self.rect.top = player.rect.top - 5
 
         ##Loading shot image, needs an image
         self.shot = pygame.image.load("images/player_ship.png")

@@ -7,7 +7,8 @@
 
 from actor import Actor
 from globals import *
-import constants
+import random
+import constants as const
 
 ## @class Enemy
 #  @brief Implements Actor base class as Enemy object
@@ -18,7 +19,7 @@ class Enemy(Actor):
     def __init__(self, image):
         Actor.__init__(self, image)
         self.hit = False
-        self.direction = random.randrange(-1, 2) * ENEMY_SPEED
+        self.direction = random.randrange(-1, 2) * const.ENEMY_SPEED
         if self.direction > 0:
             self.rect.left = screen.left
         else:
@@ -32,6 +33,6 @@ class Enemy(Actor):
     def update(self):
         self.rect[0] = self.rect[0] + self.direction
         if not screen.contains(self.rect):
-            self.direction= - self.direction
+            self.direction = - self.direction
             self.rect.top = self.rect.bottom + 10
             self.rect = self.rect.clamp(screen)
