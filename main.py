@@ -9,6 +9,5 @@ from game import Game
 from globals import *
 
 
-def main():
-    new_game = Game()
-    new_game.run()
+new_game = Game()
+new_game.run()

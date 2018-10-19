@@ -43,21 +43,24 @@ class Game:
     ## Runs the game session
     def run(self):
 
+        print("running")
         # Initialize Game Peripherals
         pygame.init()
-        screen = pygame.display.set_mode((width, height))
-        clock = pygame.time.Clock()
+        screen = pygame.display.set_mode(screen_size,0)
+        #clock = pygame.time.Clock()
 
         # TO DO: Load Images
+        background_img = pygame.image.load('assets/images/space.jpg')
+        background_img.get_at((0, 0))
         player_img = self.load_image('player_ship.png', 32, 32)
         enemy_img = self.load_image('enemy_spaceship.png', 26, 26)
         shot_img = self.load_image('missile1.png', 10, 24)
 
         # TO DO: Load Background
-        background_img = pygame.image.load('assets/images/space.jpg')
-        background_img.get_at((0, 0))
-        background_img = pygame.Surface((width, height))
-        screen.blit(background_img, (0, 0))
+        background = pygame.Surface(screen_size)
+        for x in range(0, width, background_img.get_width()):
+            background.blit(background_img, (x, 0))
+        screen.blit(background, (0, 0))
         pygame.display.flip()
 
         # Setup Game Window
@@ -68,11 +71,10 @@ class Game:
 
         # TO DO: Initialize Starting Actors
         player = Player(player_img)
-        enemy = [Enemy(enemy_img)]
+        #enemy = [Enemy(enemy_img)]
 
         # Running loop
         while player.alive:
-
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -85,3 +87,4 @@ class Game:
             #added functionality to move
             move = pygame.K_a - pygame.K_d
             player.move(move)
+            pygame.display.update()

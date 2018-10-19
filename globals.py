@@ -19,3 +19,4 @@ dirtyrects = []
 
 # Window Dimensions
 width, height = const.WIDTH, const.HEIGHT
+screen_size = const.SCREEN_SIZE
