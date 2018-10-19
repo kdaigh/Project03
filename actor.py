@@ -8,6 +8,7 @@
 import pygame
 import os.path
 import constants as const
+from globals import *
 
 
 ## @class Actor
@@ -31,6 +32,7 @@ class Actor:
     ## TO DO
     ## Removes the actor from the screen
     def erase(self, screen, background):
-        pass
+        render = screen.blit(background, self.rect, self.rect)
+        dirtyrects.append(render)
 
 
