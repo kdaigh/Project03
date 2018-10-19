@@ -12,4 +12,4 @@ from globals import *
 # TO DO: game instance
 new_game = Game()
 # TO DO: call game run function
-new_game.setup()
+new_game.run()

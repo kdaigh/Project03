@@ -6,6 +6,7 @@
 #  Created: 10/17/19
 
 from actor import Actor
+from globals import *
 
 
 ## @class Player
@@ -14,11 +15,11 @@ class Player(Actor):
 
     ## Constructor
     def __init__(self, image):
-        Actor.__init__(self, self.image)
+        Actor.__init__(self, image)
         self.alive = True
         self.reloading = False
-        self.rect.centerx = WINDOW.centerx
-        self.rect.bottom = WINDOW.bottom
+        self.rect.centerx = screen.centerx
+        self.rect.bottom = screen.bottom
 
     ## TO DO
     ## Moves player in a specific direction

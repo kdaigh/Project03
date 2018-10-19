@@ -60,13 +60,15 @@ class Game:
         pygame.mouse.set_visible(0)
 
         # TO DO: Initialize Starting Actors
+        self.player = Player(player_img)
 
     ## Runs the game session
     def run(self):
 
-        while player.alive:
+        while self.player.alive:
 
             #added functionality to shot
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    Shot.append(Shot(player))
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        Shot.append(Shot(player))
