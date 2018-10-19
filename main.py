@@ -6,7 +6,7 @@
 #  Created: 10/17/19
 
 # TO DO: import statements
-from Game import Game
+from game import Game
 from globals import *
 
 # TO DO: game instance
