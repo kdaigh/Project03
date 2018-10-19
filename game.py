@@ -63,14 +63,14 @@ class Game:
 
         # TO DO: Initialize Starting Actors
         self.player = Player(player_img)
-        self.enemy = Enemy(enemy_img)
+        self.enemy = [Enemy(enemy_img)]
 
     ## Runs the game session
     def run(self):
 
         # Running loop
         while self.player.alive:
-            
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
