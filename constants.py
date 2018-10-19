@@ -19,12 +19,8 @@ PLAYER_SPEED = 12
 # Enemy
 ENEMY_SPEED = 4
 ENEMY_ODDS = 24
+ENEMY_SIZE = (52, 48)
 
 # Shots
 MAX_SHOTS = 5
 SHOT_SPEED = 10
-
-
-
-
-

@@ -50,8 +50,7 @@ class Game:
 
         # TO DO: Load Background
         background_img = self.load_image('space.jpg', width, height)
-        screen.blit(screen, (0,0))
-        #background_img = self.get_at((0, 0))
+        background_img.get_at((0, 0))
 
         # Setup Game Window
         icon = pygame.transform.scale(player_img, (32, 32))
@@ -66,9 +65,11 @@ class Game:
     def run(self):
 
         while self.player.alive:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
 
             #added functionality to shot
-            for event in pygame.event.get():
-                if event.type == pygame.KEYDOWN:
+                elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
-                        Shot.append(Shot(player))
+                        Shot.append(Shot(self.player))
