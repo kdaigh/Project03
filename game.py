@@ -36,9 +36,9 @@ class Game:
 
     ## Sets up the game
     def setup(self):
-
         # Initialize Game Peripherals
         pygame.init()
+
         #width and height should be tuple
         screen = pygame.display.set_mode((width, height))
         clock = pygame.time.Clock()
@@ -51,6 +51,9 @@ class Game:
         # TO DO: Load Background
         background_img = self.load_image('space.jpg', width, height)
         background_img.get_at((0, 0))
+        background_img = pygame.Surface((width, height))
+        screen.blit(background_img, (0,0))
+        pygame.display.update()
 
         # Setup Game Window
         icon = pygame.transform.scale(player_img, (32, 32))
@@ -60,11 +63,14 @@ class Game:
 
         # TO DO: Initialize Starting Actors
         self.player = Player(player_img)
+        self.enemy = Enemy(enemy_img)
 
     ## Runs the game session
     def run(self):
 
+        # Running loop
         while self.player.alive:
+            
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()

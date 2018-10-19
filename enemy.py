@@ -14,7 +14,7 @@ class Enemy(Actor):
 
     ## TO DO
     ## Constructor
-    def __init__(self):
+    def __init__(self, image):
         Actor.__init__(self, image)
 
 
