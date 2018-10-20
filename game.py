@@ -15,9 +15,23 @@ from globals import *
 
 class Game:
 
-    ## Constructor
+    ## Constructor; Initializes game components
     def __init__(self):
-        pass
+        # global clock
+        global screen, width, height
+
+        # Initialize game
+        pygame.init()
+
+        # Setup Game Window
+        icon = pygame.image.load('assets/images/player_ship.png')
+        pygame.display.set_icon(icon)
+        pygame.display.set_caption('Gallaga Clone')
+        screen = pygame.display.set_mode((width, height))
+        pygame.mouse.set_visible(0)
+
+        # Initialize clock
+        # clock = pygame.time.Clock()
 
 
     ## Loads and scales object/game image
@@ -43,12 +57,6 @@ class Game:
     ## Runs the game session
     def run(self):
 
-        print("running")
-        # Initialize Game Peripherals
-        pygame.init()
-        screen = pygame.display.set_mode(screen_size,0)
-        #clock = pygame.time.Clock()
-
         # TO DO: Load Images
         background_img = pygame.image.load('assets/images/space.jpg')
         background_img.get_at((0, 0))
@@ -62,12 +70,6 @@ class Game:
             background.blit(background_img, (x, 0))
         screen.blit(background, (0, 0))
         pygame.display.flip()
-
-        # Setup Game Window
-        icon = pygame.transform.scale(player_img, (60, 60))
-        pygame.display.set_icon(icon)
-        pygame.display.set_caption('Gallaga Clone')
-        pygame.mouse.set_visible(0)
 
         # TO DO: Initialize Starting Actors
         player = Player(player_img)
