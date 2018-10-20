@@ -31,6 +31,7 @@ class Enemy(Actor):
     ## TO DO
     ## Function to update the enemy
     def update(self):
+        global screen
         self.rect[0] = self.rect[0] + self.direction
         if not screen.contains(self.rect):
             self.direction = - self.direction
