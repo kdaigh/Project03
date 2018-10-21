@@ -16,6 +16,8 @@ from pygame.locals import *
 import constants as const
 
 
+## @class Game
+#  @brief Runs the game session and manages all actors
 class Game:
 
     ## Constructor
@@ -61,6 +63,7 @@ class Game:
 
     ## Runs the game session
     #  @pre: Game components have been initialized
+    #  @post: Game has been exited properly
     def run(self):
 
         # Load Images
@@ -143,6 +146,7 @@ class Game:
             pygame.display.update(actors)
             actors = []
 
+        # Exit game and system
         pygame.display.quit()
         pygame.quit()
         sys.exit()

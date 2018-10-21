@@ -14,6 +14,7 @@ import constants as const
 class Player(Actor):
 
     ## Constructor
+    #  @param image, surface object with Player image
     def __init__(self, image):
         Actor.__init__(self, image)
         self.alive = True
@@ -22,6 +23,8 @@ class Player(Actor):
         self.rect.bottom = const.SCREENRECT.bottom
 
     ## Moves player in a specific direction
+    #  @pre: Player object exists
     #  @param: direction, coordinates that represent desired move
+    #  @post: Player location has been updated
     def move(self, direction):
         self.rect = self.rect.move(direction * const.PLAYER_SPEED, 0).clamp(const.SCREENRECT)

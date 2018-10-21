@@ -15,6 +15,7 @@ import constants as const
 class Enemy(Actor):
 
     ## Constructor
+    #  @param image, surface object with Enemy image
     def __init__(self, image):
         Actor.__init__(self, image)
         self.hit = False
@@ -34,5 +35,7 @@ class Enemy(Actor):
             self.rect = self.rect.clamp(const.SCREENRECT)
 
     ## Checks for collisions
+    #  @param actor, check collisions with this actor
+    #  @returns bool, True if collision is detected; false, otherwise
     def collision_check(self, actor):
         return self.rect.colliderect(actor.rect)
