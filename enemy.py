@@ -14,7 +14,6 @@ import constants as const
 #  @brief Implements Actor base class as Enemy object
 class Enemy(Actor):
 
-    ## TO DO
     ## Constructor
     def __init__(self, image):
         Actor.__init__(self, image)
@@ -27,8 +26,6 @@ class Enemy(Actor):
         # For now we are not letting enemies reload
 
 
-
-    ## TO DO
     ## Function to update the enemy
     def update(self):
         global screen
