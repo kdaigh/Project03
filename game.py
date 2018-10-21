@@ -31,6 +31,7 @@ class Game:
 
         # Setup Game Window
         icon = pygame.image.load('assets/images/player_ship.png')
+        icon = pygame.transform.scale(icon, (60, 80))
         pygame.display.set_icon(icon)
         pygame.display.set_caption('Gallaga Clone')
         pygame.mouse.set_visible(0)
