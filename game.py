@@ -42,9 +42,16 @@ class Game:
     #  @param: height, desired height of image
     #  @returns: Surface object
     def load_image(self, filename, file_width, file_height):
+        # Load image
         filename = os.path.join('assets/images', filename)
         img = pygame.image.load(filename)
+
+        # Scale image
         img = pygame.transform.scale(img, (file_width, file_height))
+
+        # Make transparent
+        img.set_colorkey(img.get_at((0,0)), RLEACCEL)
+
         return img.convert()
 
 
@@ -59,7 +66,6 @@ class Game:
 
         # TO DO: Load Images
         background_img = pygame.image.load('assets/images/space.jpg')
-        background_img.get_at((0, 0))
         player_img = self.load_image('player_ship.png', 60, 60)
         enemy_img = self.load_image('enemy_spaceship.png', 26, 26)
         shot_img = self.load_image('missile1.png', 10, 24)

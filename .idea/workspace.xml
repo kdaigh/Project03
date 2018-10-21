@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b60f31b-50a7-4fe6-8688-ee931d17546f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,23 +35,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="818" />
+          <entry key="py" value="1003" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="818" />
+          <entry key="Python" value="1003" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="69" column="47" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
+            <state relative-caret-position="395">
+              <caret line="67" column="69" selection-start-line="67" selection-start-column="69" selection-end-line="67" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -97,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/player.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="240">
+              <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
               <folding>
                 <element signature="e#121#144#0" expanded="true" />
               </folding>
@@ -145,14 +146,14 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/shot.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
-        <option value="$PROJECT_DIR$/game.py" />
         <option value="$PROJECT_DIR$/enemy.py" />
         <option value="$PROJECT_DIR$/player.py" />
+        <option value="$PROJECT_DIR$/game.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="227" />
+    <option name="x" value="110" />
     <option name="y" value="23" />
     <option name="width" value="946" />
     <option name="height" value="722" />
@@ -206,7 +207,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="227" y="23" width="946" height="722" extended-state="0" />
+    <frame x="110" y="23" width="946" height="722" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24972972" />
@@ -257,27 +258,10 @@
     <entry file="file://$PROJECT_DIR$/constants.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/game.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="69" column="47" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1335">
           <caret line="94" selection-start-line="94" selection-end-line="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#111#132#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -310,11 +294,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/player.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="240">
+          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
           <folding>
             <element signature="e#121#144#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#111#132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="67" column="69" selection-start-line="67" selection-start-column="69" selection-end-line="67" selection-end-column="69" />
         </state>
       </provider>
     </entry>
