@@ -22,7 +22,6 @@ class Player(Actor):
         self.rect.centerx = screen.centerx
         self.rect.bottom = screen.bottom
 
-    ## TO DO
     ## Moves player in a specific direction
     #  @param: direction, coordinates that represent desired move
     def move(self, direction):
