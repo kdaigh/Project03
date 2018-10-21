@@ -7,6 +7,7 @@
 
 import pygame
 import os.path
+import sys
 import random
 from player import Player
 from enemy import Enemy
@@ -141,4 +142,6 @@ class Game:
             pygame.display.update(actors)
             actors = []
 
-        pygame.time.wait(50)
+        pygame.display.quit()
+        pygame.quit()
+        sys.exit()
