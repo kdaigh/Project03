@@ -25,7 +25,6 @@ class Enemy(Actor):
             self.rect.right = const.SCREENRECT.right
         # For now we are not letting enemies reload
 
-
     ## Function to update the enemy
     def update(self):
         self.rect[0] = self.rect[0] + self.direction
@@ -33,3 +32,7 @@ class Enemy(Actor):
             self.direction = - self.direction
             self.rect.top = self.rect.bottom + 10
             self.rect = self.rect.clamp(const.SCREENRECT)
+
+    ## Checks for collisions
+    def collision_check(self, actor):
+        return self.rect.colliderect(actor.rect)

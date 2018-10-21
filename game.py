@@ -75,7 +75,7 @@ class Game:
         # Initialize Starting Actors
         player = Player(player_img)
         enemy = Enemy(enemy_img)
-        dirtyrects = []
+        actors = []
 
         # Running loop
         while player.alive:
@@ -89,22 +89,27 @@ class Game:
             key_presses = pygame.key.get_pressed()
             right = key_presses[pygame.K_RIGHT]
             left = key_presses[pygame.K_LEFT]
-            shoot = key_presses[pygame.K_SPACE]
+            # shoot = key_presses[pygame.K_SPACE]
             exit = key_presses[pygame.K_q]
 
-            # Quit condition
+            # Check for quit conditions
             if pygame.event.peek(QUIT) or exit:
                 break
 
-            # Clear screen and Update actors
+            # Update actors
             for actor in [player] + [enemy]:
                 render = actor.erase(self.screen, background)
-                dirtyrects.append(render)
+                actors.append(render)
                 actor.update()
 
             # Move the player
             x_dir = right - left
             player.move(x_dir)
+
+            # Check for collisions
+            if enemy.collision_check(player):
+                player.alive = False
+
 
             # HOLD: Postponing shooting functionality until player moves
             # #added functionality to shot
@@ -115,10 +120,10 @@ class Game:
             # Draw actors
             for actor in [player] + [enemy]:
                 render = actor.draw(self.screen)
-                dirtyrects.append(render)
+                actors.append(render)
 
             # Update actors
-            pygame.display.update(dirtyrects)
-            dirtyrects = []
+            pygame.display.update(actors)
+            actors = []
 
         pygame.time.wait(50)
