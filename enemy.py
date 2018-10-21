@@ -6,7 +6,6 @@
 #  Created: 10/17/19
 
 from actor import Actor
-from globals import *
 import random
 import constants as const
 
@@ -20,17 +19,16 @@ class Enemy(Actor):
         self.hit = False
         self.direction = random.randrange(-1, 2) * const.ENEMY_SPEED
         if self.direction > 0:
-            self.rect.left = screen.left
+            self.rect.left = const.SCREENRECT.left
         else:
-            self.rect.right = screen.right
+            self.rect.right = const.SCREENRECT.right
         # For now we are not letting enemies reload
 
 
     ## Function to update the enemy
     def update(self):
-        global screen
         self.rect[0] = self.rect[0] + self.direction
-        if not screen.contains(self.rect):
+        if not const.SCREENRECT.contains(self.rect):
             self.direction = - self.direction
             self.rect.top = self.rect.bottom + 10
-            self.rect = self.rect.clamp(screen)
+            self.rect = self.rect.clamp(const.SCREENRECT)

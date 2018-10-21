@@ -9,16 +9,14 @@ import pygame
 import os.path
 from player import Player
 from enemy import Enemy
-from shot import Shot
-from globals import *
+from pygame.locals import *
+import constants as const
 
 
 class Game:
 
     ## Constructor; Initializes game components
     def __init__(self):
-        global clock, screen, width, height
-
         # Initialize game
         pygame.init()
 
@@ -26,11 +24,11 @@ class Game:
         icon = pygame.image.load('assets/images/player_ship.png')
         pygame.display.set_icon(icon)
         pygame.display.set_caption('Gallaga Clone')
-        screen = pygame.display.set_mode((width, height))
+        self.screen = pygame.display.set_mode(const.SCREENRECT.size, 0)
         pygame.mouse.set_visible(0)
 
         # Initialize clock
-        clock = pygame.time.Clock()
+        self.clock = pygame.time.Clock()
 
 
     ## Loads and scales object/game image
@@ -54,61 +52,67 @@ class Game:
         return img.convert()
 
 
-    ## TO DO: Project 4
-    ## Sets up the game
-    def setup(self):
-        pass
-
-
     ## Runs the game session
     def run(self):
-
-        global dirtyrects
 
         # Load Images
         background_img = pygame.image.load('assets/images/space.jpg')
         player_img = self.load_image('player_ship.png', 45, 65)
         enemy_img = self.load_image('enemy_spaceship.png', 26, 26)
-        shot_img = self.load_image('missile1.png', 10, 24)
+        # shot_img = self.load_image('missile1.png', 10, 24)
 
         # Load Background
-        background = pygame.Surface(screen_size)
-        for x in range(0, width, background_img.get_width()):
+        background = pygame.Surface(const.SCREENRECT.size)
+        for x in range(0, const.SCREENRECT.width, background_img.get_width()):
             background.blit(background_img, (x, 0))
-        screen.blit(background, (0, 0))
+        self.screen.blit(background, (0, 0))
         pygame.display.flip()
 
-        # TO DO: Initialize Starting Actors
+        # Initialize Starting Actors
         player = Player(player_img)
         enemy = Enemy(enemy_img)
+        dirtyrects = []
 
         # Running loop
         while player.alive:
-            clock.tick(const.FPS)
+
+            self.clock.tick(const.FPS)
 
             # Call event queue
             pygame.event.pump()
 
             # Quit condition
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
+            if pygame.event.peek(QUIT):
+                break
 
-            # TO DO: Clear screen and Update actors
+            # Clear screen and Update actors
+            for actor in [player] + [enemy]:
+                render = actor.erase(self.screen, background)
+                dirtyrects.append(render)
+                actor.update()
 
-            #added functionality to shot
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_SPACE:
-                        Shot.append(Shot(player))
+            # Process input
+            key_presses = pygame.key.get_pressed()
+            right = key_presses[pygame.K_RIGHT]
+            left = key_presses[pygame.K_LEFT]
 
-            #added functionality to move
-            move = pygame.K_a - pygame.K_d
-            player.move(move)
+            # Move the player
+            x_dir = right - left
+            player.move(x_dir)
+
+            # HOLD: Postponing shooting functionality until player moves
+            # #added functionality to shot
+            #     elif event.type == pygame.KEYDOWN:
+            #         if event.key == pygame.K_SPACE:
+            #             Shot.append(Shot(player))
 
             # Draw actors
             for actor in [player] + [enemy]:
-                actor.draw(screen)
-                
+                render = actor.draw(self.screen)
+                dirtyrects.append(render)
+
             # Update actors
             pygame.display.update(dirtyrects)
             dirtyrects = []
+
+        pygame.time.wait(50)

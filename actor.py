@@ -8,7 +8,7 @@
 import pygame
 import os.path
 import constants as const
-from globals import *
+from pygame.locals import *
 
 
 ## @class Actor
@@ -27,12 +27,11 @@ class Actor:
     ## Draws the actor into the screen
     def draw(self, screen):
         render = screen.blit(self.image, self.rect)
-        dirtyrects.append(render)
+        return render;
 
-    ## TO DO
     ## Removes the actor from the screen
     def erase(self, screen, background):
         render = screen.blit(background, self.rect, self.rect)
-        dirtyrects.append(render)
+        return render;
 
 

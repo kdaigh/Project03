@@ -6,13 +6,13 @@
 #  Created: 10/18/19
 
 
+from pygame.locals import *
+
 # Frames Per Second
 FPS = 40
 
 # Window Size
-WIDTH = 640
-HEIGHT = 480
-SCREEN_SIZE = (640, 480)
+SCREENRECT = Rect(0, 0, 640, 480)
 
 # Player Speed
 PLAYER_SPEED = 12

@@ -6,7 +6,6 @@
 #  Created: 10/17/19
 
 from game import Game
-from globals import *
 
 
 new_game = Game()

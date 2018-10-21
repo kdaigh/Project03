@@ -5,8 +5,9 @@
 #  Author: Py Five
 #  Created: 10/17/19
 
+import pygame
+from pygame.locals import *
 from actor import Actor
-from globals import *
 import constants as const
 
 
@@ -19,10 +20,10 @@ class Player(Actor):
         Actor.__init__(self, image)
         self.alive = True
         self.reloading = False
-        self.rect.centerx = screen.centerx
-        self.rect.bottom = screen.bottom
+        self.rect.centerx = const.SCREENRECT.centerx
+        self.rect.bottom = const.SCREENRECT.bottom
 
     ## Moves player in a specific direction
     #  @param: direction, coordinates that represent desired move
     def move(self, direction):
-        self.rect = self.rect.move(direction * const.PLAYER_SPEED, 0).clamp(screen)
+        self.rect = self.rect.move(direction * const.PLAYER_SPEED, 0).clamp(const.SCREENRECT)
