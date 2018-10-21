@@ -15,20 +15,22 @@ import constants as const
 
 class Game:
 
-    ## Constructor; Initializes game components
+    ## Constructor
+    #  @post: Game components have been initialized
     def __init__(self):
-        # Initialize game
+
+        # Initialize pygame
         pygame.init()
+
+        # Initialize member variables
+        self.screen = pygame.display.set_mode(const.SCREENRECT.size, 0)
+        self.clock = pygame.time.Clock()
 
         # Setup Game Window
         icon = pygame.image.load('assets/images/player_ship.png')
         pygame.display.set_icon(icon)
         pygame.display.set_caption('Gallaga Clone')
-        self.screen = pygame.display.set_mode(const.SCREENRECT.size, 0)
         pygame.mouse.set_visible(0)
-
-        # Initialize clock
-        self.clock = pygame.time.Clock()
 
 
     ## Loads and scales object/game image
@@ -39,6 +41,7 @@ class Game:
     #  @param: height, desired height of image
     #  @returns: Surface object
     def load_image(self, filename, file_width, file_height):
+
         # Load image
         filename = os.path.join('assets/images', filename)
         img = pygame.image.load(filename)
@@ -53,6 +56,7 @@ class Game:
 
 
     ## Runs the game session
+    #  @pre: Game components have been initialized
     def run(self):
 
         # Load Images
@@ -81,8 +85,15 @@ class Game:
             # Call event queue
             pygame.event.pump()
 
+            # Process input
+            key_presses = pygame.key.get_pressed()
+            right = key_presses[pygame.K_RIGHT]
+            left = key_presses[pygame.K_LEFT]
+            shoot = key_presses[pygame.K_SPACE]
+            exit = key_presses[pygame.K_q]
+
             # Quit condition
-            if pygame.event.peek(QUIT):
+            if pygame.event.peek(QUIT) or exit:
                 break
 
             # Clear screen and Update actors
@@ -90,11 +101,6 @@ class Game:
                 render = actor.erase(self.screen, background)
                 dirtyrects.append(render)
                 actor.update()
-
-            # Process input
-            key_presses = pygame.key.get_pressed()
-            right = key_presses[pygame.K_RIGHT]
-            left = key_presses[pygame.K_LEFT]
 
             # Move the player
             x_dir = right - left
