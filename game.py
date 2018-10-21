@@ -66,7 +66,7 @@ class Game:
 
         # TO DO: Load Images
         background_img = pygame.image.load('assets/images/space.jpg')
-        player_img = self.load_image('player_ship.png', 60, 60)
+        player_img = self.load_image('player_ship.png', 45, 65)
         enemy_img = self.load_image('enemy_spaceship.png', 26, 26)
         shot_img = self.load_image('missile1.png', 10, 24)
 
