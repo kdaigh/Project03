@@ -17,8 +17,7 @@ class Game:
 
     ## Constructor; Initializes game components
     def __init__(self):
-        # global clock
-        global screen, width, height
+        global clock, screen, width, height
 
         # Initialize game
         pygame.init()
@@ -31,7 +30,7 @@ class Game:
         pygame.mouse.set_visible(0)
 
         # Initialize clock
-        # clock = pygame.time.Clock()
+        clock = pygame.time.Clock()
 
 
     ## Loads and scales object/game image
@@ -64,13 +63,13 @@ class Game:
     ## Runs the game session
     def run(self):
 
-        # TO DO: Load Images
+        # Load Images
         background_img = pygame.image.load('assets/images/space.jpg')
         player_img = self.load_image('player_ship.png', 45, 65)
         enemy_img = self.load_image('enemy_spaceship.png', 26, 26)
         shot_img = self.load_image('missile1.png', 10, 24)
 
-        # TO DO: Load Background
+        # Load Background
         background = pygame.Surface(screen_size)
         for x in range(0, width, background_img.get_width()):
             background.blit(background_img, (x, 0))
@@ -83,6 +82,8 @@ class Game:
 
         # Running loop
         while player.alive:
+            clock.tick(const.FPS)
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
