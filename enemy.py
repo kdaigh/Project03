@@ -9,6 +9,7 @@ from actor import Actor
 import random
 import constants as const
 
+
 ## @class Enemy
 #  @brief Implements Actor base class as Enemy object
 class Enemy(Actor):

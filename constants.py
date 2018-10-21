@@ -5,8 +5,8 @@
 #  Author: Py Five
 #  Created: 10/18/19
 
-
 from pygame.locals import *
+
 
 # Frames Per Second
 FPS = 40

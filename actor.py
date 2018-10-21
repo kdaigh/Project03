@@ -6,8 +6,6 @@
 #  Created: 10/17/19
 
 import pygame
-import os.path
-import constants as const
 from pygame.locals import *
 
 

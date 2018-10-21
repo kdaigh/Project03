@@ -5,8 +5,6 @@
 #  Author: Py Five
 #  Created: 10/17/19
 
-import pygame
-from pygame.locals import *
 from actor import Actor
 import constants as const
 
