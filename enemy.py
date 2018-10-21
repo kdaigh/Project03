@@ -18,7 +18,6 @@ class Enemy(Actor):
     #  @param image, surface object with Enemy image
     def __init__(self, image):
         Actor.__init__(self, image)
-        self.hit = False
         self.direction = random.randrange(-1, 2) * const.ENEMY_SPEED
         if self.direction > 0:
             self.rect.left = const.SCREENRECT.left
