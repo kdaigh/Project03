@@ -30,6 +30,7 @@ class Game:
         # Initialize member variables
         self.screen = pygame.display.set_mode(const.SCREENRECT.size, 0)
         self.clock = pygame.time.Clock()
+        self.quit = False
 
         # Setup Game Window
         icon = pygame.image.load('assets/images/player_ship.png')
@@ -86,7 +87,7 @@ class Game:
         actors = []
 
         # Game loop
-        while player.alive:
+        while player.alive and not self.quit:
 
             self.clock.tick(const.FPS)
 
@@ -102,6 +103,7 @@ class Game:
 
             # Check for quit conditions
             if pygame.event.peek(QUIT) or exit:
+                self.quit = True
                 break
 
             # Update actors
