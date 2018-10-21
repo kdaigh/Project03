@@ -13,13 +13,15 @@ from actor import Actor
 class Shot(Actor):
 
     ##Constructor
-    def __init__(self, player):
+    def __init__(self, image, player):
+        Actor.__init__(self, image)
         self.rect.centerx = player.rect.centerx
         self.rect.top = player.rect.top - 5
-
-        ##Loading shot image, needs an image
-        self.shot = pygame.image.load("images/player_ship.png")
 
     #updates the shot as it moves upward across the screen, speed can be moved.
     def update(self):
         self.rect.top = self.rect.top - 10
+
+    ## Checks for collisions
+    def collision_check(self, actor):
+        return self.rect.colliderect(actor.rect)

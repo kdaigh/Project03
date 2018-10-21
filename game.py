@@ -7,8 +7,10 @@
 
 import pygame
 import os.path
+import random
 from player import Player
 from enemy import Enemy
+from shot import Shot
 from pygame.locals import *
 import constants as const
 
@@ -63,7 +65,7 @@ class Game:
         background_img = pygame.image.load('assets/images/space.jpg')
         player_img = self.load_image('player_ship.png', 45, 65)
         enemy_img = self.load_image('enemy_spaceship.png', 26, 26)
-        # shot_img = self.load_image('missile1.png', 10, 24)
+        shot_img = self.load_image('missile1.png', 10, 24)
 
         # Load Background
         background = pygame.Surface(const.SCREENRECT.size)
@@ -74,10 +76,11 @@ class Game:
 
         # Initialize Starting Actors
         player = Player(player_img)
-        enemy = Enemy(enemy_img)
+        enemies = [Enemy(enemy_img)]
+        shots = []
         actors = []
 
-        # Running loop
+        # Game loop
         while player.alive:
 
             self.clock.tick(const.FPS)
@@ -89,7 +92,7 @@ class Game:
             key_presses = pygame.key.get_pressed()
             right = key_presses[pygame.K_RIGHT]
             left = key_presses[pygame.K_LEFT]
-            # shoot = key_presses[pygame.K_SPACE]
+            shoot = key_presses[pygame.K_SPACE]
             exit = key_presses[pygame.K_q]
 
             # Check for quit conditions
@@ -97,28 +100,40 @@ class Game:
                 break
 
             # Update actors
-            for actor in [player] + [enemy]:
+            for actor in [player] + enemies + shots:
                 render = actor.erase(self.screen, background)
                 actors.append(render)
                 actor.update()
+
+            # Remove out-of-frame shots
+            for shot in shots:
+                if shot.rect.top <= 0:
+                    shots.remove(shot)
 
             # Move the player
             x_dir = right - left
             player.move(x_dir)
 
+            # Create new shots
+            if not player.reloading and shoot and len(shots) < const.MAX_SHOTS:
+                shots.append(Shot(shot_img, player))
+            player.reloading = shoot
+
+            # Create new alien
+            if not int(random.random() * const.ENEMY_ODDS):
+                enemies.append(Enemy(enemy_img))
+
             # Check for collisions
-            if enemy.collision_check(player):
-                player.alive = False
+            for enemy in enemies:
+                if enemy.collision_check(player):
+                    player.alive = False
 
-
-            # HOLD: Postponing shooting functionality until player moves
-            # #added functionality to shot
-            #     elif event.type == pygame.KEYDOWN:
-            #         if event.key == pygame.K_SPACE:
-            #             Shot.append(Shot(player))
+                for shot in shots:
+                    if shot.collision_check(enemy):
+                        enemies.remove(enemy)
 
             # Draw actors
-            for actor in [player] + [enemy]:
+            for actor in [player] + enemies + shots:
                 render = actor.draw(self.screen)
                 actors.append(render)
 
