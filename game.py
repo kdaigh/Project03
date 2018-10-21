@@ -63,6 +63,8 @@ class Game:
     ## Runs the game session
     def run(self):
 
+        global dirtyrects
+
         # Load Images
         background_img = pygame.image.load('assets/images/space.jpg')
         player_img = self.load_image('player_ship.png', 45, 65)
@@ -84,9 +86,15 @@ class Game:
         while player.alive:
             clock.tick(const.FPS)
 
+            # Call event queue
+            pygame.event.pump()
+
+            # Quit condition
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
+
+            # TO DO: Clear screen and Update actors
 
             #added functionality to shot
                 elif event.type == pygame.KEYDOWN:
@@ -95,9 +103,12 @@ class Game:
 
             #added functionality to move
             move = pygame.K_a - pygame.K_d
+            player.move(move)
+
+            # Draw actors
             for actor in [player] + [enemy]:
                 actor.draw(screen)
-            global dirtyrects
-            player.move(move)
+                
+            # Update actors
             pygame.display.update(dirtyrects)
             dirtyrects = []
