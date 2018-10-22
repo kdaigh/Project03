@@ -5,8 +5,8 @@
 #  Author: Py Five
 #  Created: 10/17/19
 
-# TO DO: import statements
+from game import Game
 
-# TO DO: game instance
 
-# TO DO: call game run function
+new_game = Game()
+new_game.run()
