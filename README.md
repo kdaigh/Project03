@@ -42,4 +42,4 @@ This is an prototype version that will be further developed in a separate reposi
 
 ## Acknowledgments
 
-Please read [SOURCES.md](https://github.com/amalkhatib90/Project03/blob/master/documentation/SOURCES.MD) for a works cited.
+Please read [SOURCES.md](https://github.com/amalkhatib90/Project03/blob/master/documentation/SOURCES.md) for a works cited.
