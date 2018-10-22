@@ -1,8 +1,14 @@
 # Project 3: Gallaga Clone
 
-A Gallaga Clone build with Python and Pygame.
+Gallaga arcade game clone using Python and Pygame.
 
 ## Getting Started
+
+Python can be downloaded [here](https://www.python.org/downloads/). Make sure to add Pygame as well, using the command
+
+```
+python3 -m pip install -U pygame --user
+```
 
 To play the game, call main with Python through terminal.
 
@@ -10,6 +16,9 @@ To play the game, call main with Python through terminal.
 python3 ./main.py
 ```
 
+## Versioning
+
+This is an intermediate version for academic purposes only.
 
 ## Authors
 
