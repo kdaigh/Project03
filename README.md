@@ -1,4 +1,4 @@
-# Project 3: Gallaga Clone
+# Gibbonga (EECS448: Project 3)
 
 Gallaga arcade game clone using Python and Pygame.
 
@@ -30,11 +30,11 @@ python3 ./main.py
 * **Ethan Lefert** - [elefert400](https://github.com/elefert400)
 * **Clare Meyer** - [clareMeyer](https://github.com/clareMeyer)
 
-See also the list of [contributors](https://github.com/amalkhatib90/Project03/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/kdaigh/gibbonga/graphs/contributors) who participated in this project.
 
 ## Documentation
 
-[Doxygen](http://www.doxygen.nl/) was used to provide [documentation](https://github.com/amalkhatib90/Project03/tree/master/documentation/html) for this project.
+[Doxygen](http://www.doxygen.nl/) was used to provide [documentation](https://github.com/kdaigh/gibbonga/tree/master/docs/html) for this project.
 
 ## Versioning
 
@@ -42,4 +42,4 @@ This is an prototype version that will be further developed in a separate reposi
 
 ## Acknowledgments
 
-Please read [SOURCES.md](https://github.com/amalkhatib90/Project03/blob/master/documentation/SOURCES.md) for a works cited.
+Please read [SOURCES.md](https://github.com/kdaigh/gibbonga/tree/master/docs/SOURCES.md) for a works cited.
